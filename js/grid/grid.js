@@ -215,4 +215,8 @@ angular.module('Grid', [])
             tile.updatePosition(newPosition);
         };
 
+        this.newTile = function(pos, value) {
+            return new TileModel(pos, value);
+        };
+
     });

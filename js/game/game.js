@@ -37,6 +37,8 @@ angular.module('Game', [])
                         var cell = GridService.calculateNextPosition(tile, key),
                             next = cell.next;
 
+                        var hasWon = false;
+
                         if (next &&
                             next.value === tile.value &&
                             !next.merged) {
