@@ -23,6 +23,7 @@ angular.module('Game', [])
             if (self.win) {
                 return false;
             }
+
             var positions = GridService.traversalDirections(key);
 
             positions.x.forEach(function(x) {
@@ -70,6 +71,15 @@ angular.module('Game', [])
                     }
                 });
             });
+
+            if (hasMoved) {
+                GridService.randomlyInsertNewTile();
+
+                if (self.win || !self.movesAvailable()) {
+                    self.gameOver = true;
+                }
+            }
+
         };
 
         // Update the score
