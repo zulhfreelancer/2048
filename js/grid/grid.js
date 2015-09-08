@@ -6,6 +6,11 @@ angular.module('Grid', [])
             this.value = val || 2;
         };
 
+        Tile.prototype.updatePosition = function(newPos) {
+            this.x = newPos.x;
+            this.y = newPos.y;
+        };
+
         return Tile;
     })
     .service('GridService', function(TileModel) {
@@ -195,6 +200,19 @@ angular.module('Grid', [])
                 newPosition: previous,
                 next: this.getCellAt(cell)
             };
+        };
+
+        this.moveTile = function(tile, newPosition) {
+            var oldPos = {
+                x: tile.x,
+                y: tile.y
+            };
+
+            // Update array location
+            this.setCellAt(oldPos, null);
+            this.setCellAt(newPosition, tile);
+            // Update tile model
+            tile.updatePosition(newPosition);
         };
 
     });
