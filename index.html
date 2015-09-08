@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-	<title>2048</title>
-	<script type="text/javascript" src="js/angular.min.js"></script>
-	<script type="text/javascript" src="js/angular-cookies.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
+    <title>2048</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-cookies.min.js"></script>
 </head>
 <body>
-	<div class="container" ng-include="'views/main.html'"></div>
+	
+    <div class="container" ng-include="'views/main.html'"></div>
+
+    <script src="js/app.js"></script>
+    <script src="scripts/grid/grid.js"></script>
+    <script src="scripts/grid/grid_directive.js"></script>
+    <script src="scripts/grid/tile_directive.js"></script>
+    <script src="scripts/keyboard/keyboard.js"></script>
+    <script src="scripts/game/game.js"></script>
 </body>
 </html>
