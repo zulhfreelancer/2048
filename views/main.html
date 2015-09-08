@@ -1,3 +1,10 @@
-<input ng-model="name" type="text">
-<br>
-{{name}}
+<div id="content" ng-controller='myCtrl as ctrl'>
+  <!-- Now the variable: ctrl refers to the myCtrl -->
+  <div id="heading" class="row">
+    <h1 class="title">ng-2048</h1>
+    <div class="scores-container">
+      <div class="score-container">{{ ctrl.game.currentScore }}</div>
+      <div class="best-container">{{ ctrl.game.highScore }}</div>
+    </div>
+  </div>
+</div>
