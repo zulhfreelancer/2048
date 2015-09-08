@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>2048</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-cookies.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<input ng-model="name" type="text">
+	{{name}}
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', ['ngCookies']);
+
+		app.controller('myCtrl', ['$scope', function ($scope) {
+			
+		}])
+	</script>
+</body>
+</html>
