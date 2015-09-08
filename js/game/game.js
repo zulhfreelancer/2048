@@ -1,5 +1,9 @@
 angular.module('Game', [])
-    .service('GameManager', function(GridService) {
+    .service('GameManager', function(GridService, $cookieStore) {
+
+        this.getHighScore = function() {
+            return parseInt($cookieStore.get('highScore')) || 0;
+        };
 
         // Create a new game
         this.newGame = function() {
@@ -84,7 +88,14 @@ angular.module('Game', [])
         };
 
         // Update the score
-        this.updateScore = function(newScore) {};
+        this.updateScore = function(newScore) {
+            this.currentScore = newScore;
+            if (this.currentScore > this.getHighScore()) {
+                this.highScore = newScore;
+                // Set on the cookie
+                $cookieStore.put('highScore', newScopre);
+            }
+        };
 
         // Are there moves left?
         this.movesAvailable = function() {
