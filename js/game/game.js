@@ -18,6 +18,9 @@ angular.module('Game', [])
 
         // Handle the move action
         this.move = function(key) {
+            // Update Grid
+            GridService.prepareTiles();
+            var hasWon = false;
             var self = this;
             // define move here
             if (self.win) {
@@ -37,8 +40,6 @@ angular.module('Game', [])
                     if (tile) {
                         var cell = GridService.calculateNextPosition(tile, key),
                             next = cell.next;
-
-                        var hasWon = false;
 
                         if (next &&
                             next.value === tile.value &&

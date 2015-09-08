@@ -219,4 +219,12 @@ angular.module('Grid', [])
             return new TileModel(pos, value);
         };
 
+        this.prepareTiles = function() {
+            this.forEach(function(x, y, tile) {
+                if (tile) {
+                    tile.reset();
+                }
+            });
+        };
+
     });
